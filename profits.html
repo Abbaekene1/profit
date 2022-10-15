@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>profits</title>
+        <script>
+            /* there's a bug here in the entire JS script, which apparntly i can't find...
+            which one be say i go input 10,000 - 5000, i go come dey see -5000. which kind nonsense be this. be like say 
+            this code wan ment! */
+
+           document.addEventListener('DOMContentLoaded', () =>{
+            //gets the value from the user of the website after the submit button is clicked
+                document.querySelector('form').onsubmit = () =>{
+                    let costprice = document.querySelector('#cp').value;
+                    let sellingprice = document.querySelector('#sp').value;
+            //formula used to get the gain & loss 
+                    const gain = sellingprice - costprice;
+                    const lost = costprice - sellingprice;
+            //algorithm for the calculation and gives the answer back to the user
+                    if(sellingprice > costprice){
+                         document.querySelector('h3').innerHTML = `your gain is ${gain}`;
+                    }else if(costprice > sellingprice ){
+                        document.querySelector('h3').innerHTML = `your loss is ${lost}`;
+                    }else{
+                        alert('No profit or loss');
+                    }
+            //stops the form from submitting
+                    return false;
+                }
+           })
+        </script>
+    </head>
+    <body>
+        <h1>simple interest helps you know the profits and loss in your business.</h1>
+        <form>
+            <label>selling price</label><br>
+            <input type="number" placeholder="selling price" id="sp"><br>
+            <label>cost price</label><br>
+            <input type="number" placeholder="cost price" id="cp">
+            <input type="submit"><br><br>
+            <input type="reset">
+        </form>
+        <h3>
+            
+        </h3>
+    </body>
+</html>
